@@ -50,6 +50,6 @@
     "@nomiclabs/hardhat-ethers": "^2.0.5",
     "chai": "^4.3.6",
     "ethers": "^5.5.4",
-    "hardhat": "^2.10.1"
+    "hardhat": "^2.12.5"
   }
 }
