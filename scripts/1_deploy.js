@@ -5,7 +5,7 @@ async function main() {
     const Token = await ethers.getContractFactory("Token")
     const Exchange = await ethers.getContractFactory("Exchange")
 
-    //FEtch accounts
+    //Fetch accounts
     const accounts = await ethers.getSigners()
 
 
