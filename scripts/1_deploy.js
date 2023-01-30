@@ -10,9 +10,9 @@ async function main() {
 
 
     // Deploy contract
-    const AB = await Token.deploy('Aryan Bhola','AB','1000000')
-    await AB.deployed()
-    console.log(`AB Deployed to: ${AB.address}`)
+    const DApp = await Token.deploy('Aryan Bhola','DApp','1000000')
+    await DApp.deployed()
+    console.log(`DApp Deployed to: ${DApp.address}`)
   
     const mETH = await Token.deploy('mETH','mETH','1000000')
     await mETH.deployed()
