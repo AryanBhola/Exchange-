@@ -1,38 +1,40 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import config from '../config.json';
-
-
+import React from 'react';
 import {
   loadProvider,
   loadNetwork,
+  loadAccount,
   loadTokens,
   loadExchange,
-  loadAccount
+  subscribeToEvents
 } from '../store/interactions';
 
 import Navbar from './Navbar'
-import Markets from './markets'
-
+import Markets from './Markets'
+import Balance from './Balance'
 
 function App() {
   const dispatch = useDispatch()
 
   const loadBlockchainData = async () => {
-    
     // Connect Ethers to blockchain
     const provider = loadProvider(dispatch)
 
     // Fetch current network's chainId (e.g. hardhat: 31337, kovan: 42)
     const chainId = await loadNetwork(provider, dispatch)
+
+    // Reload page when network changes
     window.ethereum.on('chainChanged', () => {
       window.location.reload()
     })
-    // Fetch current account & balance from Metamask
-    //check when accounts change
-    window.ethereum.on('accountsChanged',() =>{
-     loadAccount(provider, dispatch)
-  })
+
+    // Fetch current account & balance from Metamask when changed
+    window.ethereum.on('accountsChanged', () => {
+      loadAccount(provider, dispatch)
+    })
+
     // Load token smart contracts
     const DApp = config[chainId].DApp
     const mETH = config[chainId].mETH
@@ -40,7 +42,10 @@ function App() {
 
     // Load exchange smart contract
     const exchangeConfig = config[chainId].exchange
-    await loadExchange(provider, exchangeConfig.address, dispatch)
+    const exchange = await loadExchange(provider, exchangeConfig.address, dispatch)
+
+    // Listen to events
+    subscribeToEvents(exchange, dispatch)
   }
 
   useEffect(() => {
@@ -50,13 +55,14 @@ function App() {
   return (
     <div>
 
-     <Navbar />
+      <Navbar />
+
       <main className='exchange grid'>
         <section className='exchange__section--left grid'>
 
-        <Markets />
+          <Markets />
 
-          {/* Balance */}
+          <Balance />
 
           {/* Order */}
 
