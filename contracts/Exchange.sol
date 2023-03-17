@@ -163,7 +163,7 @@ function fillOrder(uint256 _id) public {
         3. Order can't be Cancelled
     */
     require(_id>0 && _id <= orderCount,"Order does not exist");
-   // require(!orderFilled[_id],"no");
+    require(!orderFilled[_id],"no");
    require(!orderCancelled[_id]);
 
     //fetch order
