@@ -162,6 +162,7 @@ export const exchange = (state = DEFAULT_EXCHANGE_STATE, action) => {
       case 'NEW_ORDER_SUCCESS':
         //Prevent duplicate orders
         let index = state.allOrders.data.findIndex(order => order.id === action.orderId)
+        // eslint-disable-next-line
         let data
         if (index === -1){
           data = [...state.allOrders.data, action.order]
