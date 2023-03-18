@@ -89,6 +89,18 @@ export const exchange = (state = DEFAULT_EXCHANGE_STATE, action) => {
       }
 
     // ------------------------------------------------------------------------------
+    // ORDERS LOADED (CANCELLED, FILLED .....)
+
+      case 'ALL_ORDERS_LOADED':
+        return{
+          ...state,
+          allOrders: {
+            loaded: true,
+            data: action.allOrders
+          }
+          
+        }
+    // ------------------------------------------------------------------------------
     // BALANCE CASES
     case 'EXCHANGE_TOKEN_1_BALANCE_LOADED':
       return {
@@ -161,7 +173,7 @@ export const exchange = (state = DEFAULT_EXCHANGE_STATE, action) => {
       }
       case 'NEW_ORDER_SUCCESS':
         //Prevent duplicate orders
-        let index = state.allOrders.data.findIndex(order => order.id === action.orderId)
+        let index = state.allOrders.data.findIndex(order => order.id.toString() === action.orderId)
         // eslint-disable-next-line
         let data
         if (index === -1){
@@ -184,7 +196,7 @@ export const exchange = (state = DEFAULT_EXCHANGE_STATE, action) => {
         }
   
 
-
+       
 
 
 
