@@ -13,7 +13,7 @@ import {
 } from '../store/interactions';
 
 import Navbar from './Navbar'
-import Markets from './Markets'
+import Markets from './market'
 import Balance from './Balance'
 import Order from './Order'
 import OrderBook from './OrderBook'
