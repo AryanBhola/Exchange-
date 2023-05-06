@@ -8,7 +8,7 @@ import { provider, tokens, exchange } from './reducers'
 const reducer = combineReducers({
   provider,
   tokens,
-  exchange
+  exchange,
 })
 
 const initialState = {}

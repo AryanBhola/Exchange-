@@ -1,5 +1,5 @@
 const config = require('../src/config.json')
-const { ethers } = require("hardhat");
+
 const tokens = (n) => {
   return ethers.utils.parseUnits(n.toString(), 'ether')
 }
@@ -77,7 +77,7 @@ async function main() {
   console.log(`Made order from ${user1.address}`)
 
   // User 1 cancels order
-  orderId = 1
+  orderId = result.events[0].args.id
   transaction = await exchange.connect(user1).cancelOrder(orderId)
   result = await transaction.wait()
   console.log(`Cancelled order from ${user1.address}\n`)
@@ -95,7 +95,7 @@ async function main() {
   console.log(`Made order from ${user1.address}`)
 
   // User 2 fills order
-  orderId = 2
+  orderId = result.events[0].args.id
   transaction = await exchange.connect(user2).fillOrder(orderId)
   result = await transaction.wait()
   console.log(`Filled order from ${user1.address}\n`)
@@ -109,7 +109,7 @@ async function main() {
   console.log(`Made order from ${user1.address}`)
 
   // User 2 fills another order
-  orderId = 3
+  orderId = result.events[0].args.id
   transaction = await exchange.connect(user2).fillOrder(orderId)
   result = await transaction.wait()
   console.log(`Filled order from ${user1.address}\n`)
@@ -123,7 +123,7 @@ async function main() {
   console.log(`Made order from ${user1.address}`)
 
   // User 2 fills final order
-  orderId = 4
+  orderId = result.events[0].args.id
   transaction = await exchange.connect(user2).fillOrder(orderId)
   result = await transaction.wait()
   console.log(`Filled order from ${user1.address}\n`)

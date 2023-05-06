@@ -1,111 +1,115 @@
-import React from "react";
-import { useRef, useState } from "react";
-import { useSelector} from "react-redux";
-import sort from '../assets/sort.svg'
-import { myOpenOrdersSelector } from "../store/selectors"; 
-import Banner from "./PriceCHart/banner";
-import { myFilledOrdersSelector } from "../store/selectors";
+import { useRef, useState } from 'react';
+import { useSelector,useDispatch} from 'react-redux'
+import { myOpenOrdersSelector, myFilledOrdersSelector } from '../store/selectors'
+import React from 'react';
+import sort from '../assets/sort.svg';
+import { cancelOrder } from '../store/interactions';
+import Banner from './PriceCHart/banner';
 const Transactions = () => {
-    const [showMyOrder, setShowMyOrders] = useState(true)
-    const symbols = useSelector(state => state.tokens.symbols)
-    const myOrders = useSelector(myOpenOrdersSelector)
-    const myFilledOrders = useSelector(myFilledOrdersSelector)
+  const [showMyOrders, setShowMyOrders] = useState(true)
+  const symbols = useSelector(state => state.tokens.symbols)
+  const myOpenOrders = useSelector(myOpenOrdersSelector)
+  const myFilledOrders = useSelector(myFilledOrdersSelector)
+  const provider = useSelector(state => state.provider.connection)
+  const exchange = useSelector(state => state.exchange.contract)
+  const dispatch = useDispatch()
 
-    const tabHandler = (e) =>{
-        if(e.target.className !== orderRef.current.className){
-            e.target.className = 'tab tab--active'
-            orderRef.current.className = 'tab'
-            setShowMyOrders(false)
-        }
-        else{
-            e.target.className = 'tab tab--active'
-            tradeRef.current.className = 'tab'
-            setShowMyOrders(true)
-        }
+
+  const tradeRef = useRef(null)
+  const orderRef = useRef(null)
+
+  const tabHandler = (e) => {
+    if (e.target.className !== orderRef.current.className) {
+      e.target.className = 'tab tab--active'
+      orderRef.current.className = 'tab'
+      setShowMyOrders(false)
+    } else {
+      e.target.className = 'tab tab--active'
+      tradeRef.current.className = 'tab'
+      setShowMyOrders(true)
     }
+  }
 
-    const tradeRef = useRef(null)
-    const orderRef = useRef(null)
-
-    return (
-      <div className="component exchange__transactions">
-        {showMyOrder ? (
+  const cancelHandler = (order) =>{
+    cancelOrder(provider, exchange, order, dispatch)
+  }
+  return (
+    <div className="component exchange__transactions">
+      {showMyOrders ? (
         <div>
           <div className='component__header flex-between'>
             <h2>My Orders</h2>
-  
+
             <div className='tabs'>
-              <button onClick = {tabHandler} ref = {orderRef}className='tab tab--active'>Orders</button>
-              <button onClick = {tabHandler} rer = {tradeRef}className='tab'>Trades</button>
+              <button onClick={tabHandler} ref={orderRef} className='tab tab--active'>Orders</button>
+              <button onClick={tabHandler} ref={tradeRef} className='tab'>Trades</button>
             </div>
           </div>
-          {!myOrders || myOrders.length === 0 ? (
-          <Banner text='No Open Orders'/>
-        ):( <table>
-            <thead>
-              <tr>
-                  <th>Time<img src={sort} alt="Sort" /></th>
+
+          {!myOpenOrders || myOpenOrders.length === 0 ? (
+            <Banner text='No Open Orders'/>
+          ) : (
+            <table>
+              <thead>
+                <tr>
                   <th>{symbols && symbols[0]}<img src={sort} alt="Sort" /></th>
                   <th>{symbols && symbols[0]}/{symbols && symbols[1]}<img src={sort} alt="Sort" /></th>
-              </tr>
-            </thead>
-            <tbody>
-              {myOrders && myOrders.map((order,index) =>{
-                  return(
-              <tr key={index}>
-                  <td>{order.token0Amount}</td>
-                  <td style={{ color: `${order.orderTypeClass}`}}>{order.tokenPrice}</td>
-                  <td></td>
-              </tr>
-                  )
-              })}
-              
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
 
-            </tbody>
-          </table>
+                {myOpenOrders && myOpenOrders.map((order, index) => {
+                  return(
+                    <tr key={index}>
+                      <td style={{ color: `${order.orderTypeClass}` }}>{order.token0Amount}</td>
+                      <td>{order.tokenPrice}</td>
+                      <td><button className='button--sm' onClick={() => cancelHandler(order)}>Cancel</button></td>
+                    </tr>
+                  )
+                })}
+
+              </tbody>
+            </table>
           )}
-           
-  
         </div>
-        ):(
+      ) : (
         <div>
-          <div className='component__header flex-between'> 
+          <div className='component__header flex-between'>
             <h2>My Transactions</h2>
-  
+
             <div className='tabs'>
-            <button onClick = {tabHandler} ref = {orderRef} className='tab tab--active'>Orders</button>
-            <button onClick = {tabHandler} ref = {tradeRef}className='tab'>Trades</button>
+              <button onClick={tabHandler} ref={orderRef} className='tab tab--active'>Orders</button>
+              <button onClick={tabHandler} ref={tradeRef} className='tab'>Trades</button>
             </div>
           </div>
-  
+
           <table>
             <thead>
               <tr>
-              <th>Time<img src={sort} alt="Sort" /></th>
-                  <th>{symbols && symbols[0]}<img src={sort} alt="Sort" /></th>
-                  <th>{symbols && symbols[0]}/{symbols && symbols[1]}<img src={sort} alt="Sort" /></th>
+                <th>Time<img src={sort} alt="Sort" /></th>
+                <th>{symbols && symbols[0]}<img src={sort} alt="Sort" /></th>
+                <th>{symbols && symbols[0]}/{symbols && symbols[1]}<img src={sort} alt="Sort" /></th>
               </tr>
             </thead>
             <tbody>
-  {myFilledOrders && myFilledOrders.map((order,index) =>{return(
-    <tr key={index}>
-    <td>{order.formattedTimestamp}</td>
-    <td style={{ color: `${order.orderClass}` }}>{order.orderSign}{order.token0Amount}</td>
-    <td>{order.tokenPrice}</td>
-     </tr>
-  )})}
-              
-  
+
+              {myFilledOrders && myFilledOrders.map((order, index) => {
+                return(
+                  <tr key={index}>
+                    <td>{order.formattedTimestamp}</td>
+                    <td style={{ color: `${order.orderClass}` }}>{order.orderSign}{order.token0Amount}</td>
+                    <td>{order.tokenPrice}</td>
+                  </tr>
+                )
+              })}
+
             </tbody>
           </table>
-  
         </div>
-        )}
-        
-  
-        
-      </div>
-    )
-  }
-  
-  export default Transactions;
+      )}
+    </div>
+  )
+}
+
+export default Transactions;
