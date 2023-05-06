@@ -76,6 +76,13 @@ const DEFAULT_EXCHANGE_STATE = {
     loaded: false,
     data: []
   },
+  cancelledOrders: {
+    data: []
+  },
+  filledOrders: {
+    data: []
+  },
+  
   events: []
 }
 
@@ -157,16 +164,58 @@ export const exchange = (state = DEFAULT_EXCHANGE_STATE, action) => {
             action.order
             ]
           },
-          events: [action.event, ... state.events]
+          events: [action.event,...state.events]
         } 
-
-
-
-
-
-
-
-
+        case 'ORDER_FILL_REQUEST':
+          return {
+            ...state,
+            transaction: {
+              transactionType: "Fill Order",
+              isPending: true,
+              isSuccessful: false
+            }
+          }
+    
+        case 'ORDER_FILL_SUCCESS':
+          // Prevent duplicate orders
+          // eslint-disable-next-line
+          index = state.filledOrders.data.findIndex(order => order.id.toString() === action.order.id.toString())
+        // eslint-disable-next-line
+          if (index === -1) {
+            // eslint-disable-next-line
+            data = [...state.filledOrders.data, action.order]
+          }
+          // eslint-disable-next-line 
+          else {
+            // eslint-disable-next-line
+            data = state.filledOrders.data
+          }
+    
+          return {
+            ...state,
+            transaction: {
+              transactionType: "Fill Order",
+              isPending: false,
+              isSuccessful: true
+            },
+            filledOrders: {
+              ...state.filledOrders,
+              // eslint-disable-next-line
+              data
+            },
+            events: [action.event, ...state.events]
+          }
+    
+        case 'ORDER_FILL_FAIL':
+          return {
+            ...state,
+            transaction: {
+              transactionType: "Fill Order",
+              isPending: false,
+              isSuccessful: false,
+              isError: true
+            }
+          }
     // ------------------------------------------------------------------------------
     // BALANCE CASES
     case 'EXCHANGE_TOKEN_1_BALANCE_LOADED':
@@ -185,7 +234,7 @@ export const exchange = (state = DEFAULT_EXCHANGE_STATE, action) => {
     case 'TRANSFER_REQUEST':
       return {
         ...state,
-        trasnsaction: {
+        transaction: {
           transactionType: 'Transfer',
           isPending: true,
           isSuccessful: false
@@ -261,21 +310,7 @@ export const exchange = (state = DEFAULT_EXCHANGE_STATE, action) => {
           },
           events : [action.event, ...state.events]
         }
-  
-
-       
-
-
-
-
-
-
-
-
-
-
-
-      default:
+        default:
         return state
   }
 }

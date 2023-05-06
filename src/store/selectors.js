@@ -6,6 +6,7 @@ import { ethers } from 'ethers';
 const GREEN = '#FFFFE0'
 const RED = '#FFB6C1'
 
+const events = state => get(state, 'exchange.events')
 
 const tokens = state => get(state, 'tokens.contracts')
 const account = state => get(state, 'provider.account')
@@ -352,5 +353,15 @@ const decorateMyFilledOrders = (orders, account,tokens) => {
     orderSign: (orderType === 'buy' ? '+' : '-')
   })
   }
+// ------------------------------------------------------------------------------
+// MY EVENTS
 
-
+export const myEventsSelector = createSelector(
+  account,
+  events,
+  (account, events) => {
+    events = events.filter((e) => e.args.user === account)
+    console.log(events)
+    return events
+  }
+)
