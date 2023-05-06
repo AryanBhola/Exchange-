@@ -54,5 +54,8 @@
     "ethereum-waffle": "^3.4.0",
     "ethers": "^5.5.4",
     "hardhat": "^2.14.0"
+  },
+  "engines": {
+    "node": "20.1.0"
   }
 }
