@@ -3,7 +3,7 @@ import { get, groupBy, reject, minBy, maxBy } from 'lodash';
 import moment from 'moment'
 import { ethers } from 'ethers';
 
-const GREEN = '#FFFFE0'
+const GREEN = '#99FF99'
 const RED = '#FFB6C1'
 
 const events = state => get(state, 'exchange.events')
