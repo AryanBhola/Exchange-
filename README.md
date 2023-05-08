@@ -1,6 +1,7 @@
-<h1 align="center" style="font-size: 30px;">
+<h1 align="center" style="font-size: 30px; font-family: 'Times New Roman', serif;">
    Ciao Peps
 </h1>
+
 
 
 ![alt text](https://drive.google.com/uc?id=1vs-GcbnXUQ4Qy9bGGUFl07-5lCS5mkrs "Image Title" )
