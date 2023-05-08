@@ -1,4 +1,4 @@
-<h2> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" /alt="vscode" width="10" height="10"/>Some Tools I Have Used and Learned</h2>
+<h2> <img src="" width="30" height="30"/>Some Tools I Have Used and Learned</h2>
 <p align="left">
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" /alt="vscode" width="60" height="70"/>
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/solidity/solidity-original.svg" /alt="vscode" width="60" height="70"/>
