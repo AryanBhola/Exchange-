@@ -1,8 +1,10 @@
-![alt text](https://drive.google.com/uc?id=1vs-GcbnXUQ4Qy9bGGUFl07-5lCS5mkrs "Image Title" )
-
-<p align="center">
+<p align="center" style="font-size: 24px;">
    Ciao Peps
 </p>
+
+![alt text](https://drive.google.com/uc?id=1vs-GcbnXUQ4Qy9bGGUFl07-5lCS5mkrs "Image Title" )
+
+
 
 
 <h2> Some Tools I Have Used and Learned</h2>
