@@ -1,5 +1,5 @@
 <p align="center">
-   <img src="./img/projects/EXCH.png" alt=""> HEY EVERYONE
+   <img src="https://drive.google.com/file/d/1vs-GcbnXUQ4Qy9bGGUFl07-5lCS5mkrs/view?usp=share_link" alt=""> HEY EVERYONE
 </p>
 
 
