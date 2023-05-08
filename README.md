@@ -1,4 +1,4 @@
-<p align="center" style="font-size: 24px;">
+<p align="center" style="font-size: 1000px;">
    Ciao Peps
 </p>
 
