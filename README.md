@@ -18,7 +18,9 @@
     Go check it out        <a href="https://divine-union-1351.on.fleek.co/" target="_blank">LINK</a>
  
 <br><br>
-<h3> A Peak into the real thing <h3/>
+<h3> A Peak into the real thing <h3/><br>
+   
+   
 ![alt text](https://drive.google.com/uc?id=1vs-GcbnXUQ4Qy9bGGUFl07-5lCS5mkrs "Image Title" )
 
 
