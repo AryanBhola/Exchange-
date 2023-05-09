@@ -1,7 +1,7 @@
 <h1 align="center" style="font-size: 30px; font-family: 'Times New Roman', serif;">
    Ciao Peps
 </h1>
-<p align="center" style="font-size: 50px; font-family: 'Times New Roman', serif;"> Decentralized ERC20 Token Exchange <p/>
+<p align="center" style="font-size: 100px; font-family: 'Times New Roman', serif;"> Decentralized ERC20 Token Exchange <p/>
 <br><br>
 
 
