@@ -3,9 +3,17 @@
 </h1>
 <p align="center" style="font-size: 100px; font-family: 'Times New Roman', serif;"> Decentralized ERC20 Token Exchange <p/>
 <br><br>
-<h2>How to go about the exchange?</h2>
+<h2>? How to go about the exchange ?</h2>
+1. Connect your Metamask account to the Sepolia Testnet. This will allow you to interact with the exchange and use the test tokens provided on the network.
+2. Once you have connected your account, you will be able to see your balance. In order to trade, you will need to deposit some tokens on the exchange.
+3. After depositing your tokens, you will need to approve the transaction before you can begin trading. This is a necessary step to ensure that your funds are    safe and secure.
+4.Once your tokens have been approved, you can place a buy or sell order on the exchange. Specify the amount and price you wish to trade at, and the order will be   placed in the order book.
+5.You can monitor your orders in both the order book and the My Orders section. Here you can see any orders you have placed and whether they have been filled or     cancelled.
+6. If you wish to fill a buy or sell order, simply click on the order itself and follow the prompts. You can also cancel your order if you change your mind.
+7. Once a trade has been completed, you can view it under the Trades section. Here you can see the details of the transaction, including the price and volume of      the trade.
+8. As you complete trades, the chart on the exchange will update to reflect the current market conditions.
 
-
+   By following these steps, you should be able to successfully trade on the Sepolia Testnet exchange.
 
 
 ![alt text](https://drive.google.com/uc?id=1vs-GcbnXUQ4Qy9bGGUFl07-5lCS5mkrs "Image Title" )
