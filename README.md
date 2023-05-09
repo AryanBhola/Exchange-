@@ -15,7 +15,7 @@
 8. As you complete trades, the chart on the exchange will update to reflect the current market conditions.<br>
 
    By following these steps, you should be able to successfully trade on the Sepolia Testnet exchange.<br>
-    Go check it out        <a href="https://divine-union-1351.on.fleek.co/" target="_blank">LINK</a>
+    Go check it out        <a href="https://divine-union-1351.on.fleek.co/" target="_blank">LINK</a>.
  
 <br><br>
 <h3> A Peak into the real thing <h3/><br>
