@@ -7,7 +7,7 @@
    
 1. Connect your Metamask account to the Sepolia Testnet. This will allow you to interact with the exchange and use the test tokens provided on the network.<br>
 2. Once you have connected your account, you will be able to see your balance. In order to trade, you will need to deposit some tokens on the exchange.<br>
-3. After depositing your tokens, you will need to approve the transaction before you can begin trading. This is a necessary step to ensure that your funds are     safe and secure.<br>
+3. After depositing your tokens, you will need to approve the transaction before you can begin trading. This is a necessary step to ensure that your funds are<br>     safe and secure.<br>
 4.Once your tokens have been approved, you can place a buy or sell order on the exchange. Specify the amount and price you wish to trade at, and the order will be  placed in the order book.<br>
 5.You can monitor your orders in both the order book and the My Orders section. Here you can see any orders you have placed and whether they have been filled or    cancelled.<br>
 6. If you wish to fill a buy or sell order, simply click on the order itself and follow the prompts. You can also cancel your order if you change your mind.<br>
