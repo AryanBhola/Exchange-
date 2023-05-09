@@ -3,7 +3,7 @@
 </h1>
 <p align="center" style="font-size: 100px; font-family: 'Times New Roman', serif;"> Decentralized ERC20 Token Exchange <p/>
 <br><br>
-
+<h2>How to go about the exchange?</h2>
 
 
 
