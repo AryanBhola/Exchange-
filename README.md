@@ -5,7 +5,7 @@
 <br><br>
 <h2>? How to go about the exchange ?</h2>
    
-1. Connect your Metamask account to the Sepolia Testnet. This will allow you to interact with the exchange and use the test tokens provided on the network.<br><br>
+1. Connect your Metamask account to the Sepolia Testnet. This will allow you to interact with the exchange and use the test tokens provided on the network.
 2. Once you have connected your account, you will be able to see your balance. In order to trade, you will need to deposit some tokens on the exchange.<br>
 3. After depositing your tokens, you will need to approve the transaction before you can begin trading. This is a necessary step to ensure that your funds are safe and secure.<br>
 4.Once your tokens have been approved, you can place a buy or sell order on the exchange. Specify the amount and price you wish to trade at, and the order will be  placed in the order book.<br>
